@@ -4,39 +4,48 @@
   <meta charset="UTF-8">
   <title>Sản phẩm - Cửa hàng của Chương</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
-    <h1>Cửa hàng của Chương</h1>
+    <div class="logo"><h1>Cửa hàng của Chương</h1></div>
     <nav>
       <a href="index.html">Trang chủ</a>
-      <a href="sanpham.html">Sản phẩm</a>
+      <a href="sanpham.html" class="active">Sản phẩm</a>
       <a href="giohang.html">Giỏ hàng</a>
-      <a href="dangnhap.html" id="loginLink">Đăng nhập</a>
+      <a href="dangnhap.html">Đăng nhập</a>
     </nav>
   </header>
 
   <div class="container">
     <h2>Danh sách sản phẩm</h2>
-    <div class="product-grid">
-      <div class="product" onclick="xemChiTiet('1')">
-        <img src="sp1.jpg" alt="Sản phẩm 1">
+    <div class="product-list">
+      <!-- Lặp lại 10 sản phẩm -->
+      <div class="product">
+        <img src="sp1.jpg">
         <h3>Sản phẩm 1</h3>
         <p>Giá: 45.000₫</p>
+        <button class="add-to-cart" data-name="Sản phẩm 1" data-price="45000">Thêm vào giỏ</button>
       </div>
-
-      <div class="product" onclick="xemChiTiet('2')">
-        <img src="sp2.jpg" alt="Sản phẩm 2">
+      <div class="product">
+        <img src="sp2.jpg">
         <h3>Sản phẩm 2</h3>
         <p>Giá: 35.000₫</p>
+        <button class="add-to-cart" data-name="Sản phẩm 2" data-price="35000">Thêm vào giỏ</button>
       </div>
+      <div class="product"><img src="sp3.jpg"><h3>Sản phẩm 3</h3><p>Giá: 50.000₫</p><button class="add-to-cart" data-name="Sản phẩm 3" data-price="50000">Thêm vào giỏ</button></div>
+      <div class="product"><img src="sp4.jpg"><h3>Sản phẩm 4</h3><p>Giá: 65.000₫</p><button class="add-to-cart" data-name="Sản phẩm 4" data-price="65000">Thêm vào giỏ</button></div>
+      <div class="product"><img src="sp5.jpg"><h3>Sản phẩm 5</h3><p>Giá: 70.000₫</p><button class="add-to-cart" data-name="Sản phẩm 5" data-price="70000">Thêm vào giỏ</button></div>
+      <div class="product"><img src="sp6.jpg"><h3>Sản phẩm 6</h3><p>Giá: 55.000₫</p><button class="add-to-cart" data-name="Sản phẩm 6" data-price="55000">Thêm vào giỏ</button></div>
+      <div class="product"><img src="sp7.jpg"><h3>Sản phẩm 7</h3><p>Giá: 80.000₫</p><button class="add-to-cart" data-name="Sản phẩm 7" data-price="80000">Thêm vào giỏ</button></div>
+      <div class="product"><img src="sp8.jpg"><h3>Sản phẩm 8</h3><p>Giá: 25.000₫</p><button class="add-to-cart" data-name="Sản phẩm 8" data-price="25000">Thêm vào giỏ</button></div>
+      <div class="product"><img src="sp9.jpg"><h3>Sản phẩm 9</h3><p>Giá: 90.000₫</p><button class="add-to-cart" data-name="Sản phẩm 9" data-price="90000">Thêm vào giỏ</button></div>
+      <div class="product"><img src="sp10.jpg"><h3>Sản phẩm 10</h3><p>Giá: 60.000₫</p><button class="add-to-cart" data-name="Sản phẩm 10" data-price="60000">Thêm vào giỏ</button></div>
     </div>
   </div>
 
   <footer>
     <p>&copy; 2025 Cửa hàng của Chương</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

@@ -2,30 +2,30 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Giỏ hàng</title>
+  <title>Giỏ hàng - Cửa hàng của Chương</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
-    <h1>Cửa hàng của Chương</h1>
+    <div class="logo"><h1>Cửa hàng của Chương</h1></div>
     <nav>
       <a href="index.html">Trang chủ</a>
       <a href="sanpham.html">Sản phẩm</a>
-      <a href="giohang.html">Giỏ hàng</a>
-      <a href="dangnhap.html" id="loginLink">Đăng nhập</a>
+      <a href="giohang.html" class="active">Giỏ hàng</a>
+      <a href="dangnhap.html">Đăng nhập</a>
     </nav>
   </header>
 
-  <div class="container" id="giohang">
+  <div class="container">
     <h2>Giỏ hàng của bạn</h2>
-    <ul id="cartItems"></ul>
-    <button onclick="xoaGioHang()">Xóa giỏ hàng</button>
+    <div id="cartItems"></div>
+    <p id="cartTotal"></p>
+    <button onclick="clearCart()">🗑️ Xóa tất cả</button>
   </div>
 
   <footer>
     <p>&copy; 2025 Cửa hàng của Chương</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

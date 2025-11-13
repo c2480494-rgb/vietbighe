@@ -2,30 +2,63 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Cửa hàng của Chương</title>
+  <title>Trang chủ - Cửa hàng của Chương</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script defer src="script.js"></script>
 </head>
+
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
-    <h1>Cửa hàng của Chương</h1>
+    <div class="logo">
+      <h1>Cửa hàng của Chương</h1>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Tìm sản phẩm...">
+      <button onclick="timKiem()"><i class="fas fa-search"></i></button>
+    </div>
+
     <nav>
-      <a href="index.html">Trang chủ</a>
+      <a href="index.html" class="active">Trang chủ</a>
+      <a href="gioithieu.html">Giới thiệu</a>
       <a href="sanpham.html">Sản phẩm</a>
-      <a href="giohang.html">Giỏ hàng</a>
-      <a href="dangnhap.html" id="loginLink">Đăng nhập</a>
     </nav>
+
+    <div class="icons">
+      <a href="giohang.html" title="Giỏ hàng"><i class="fas fa-shopping-cart"></i></a>
+      <a href="dangnhap.html" title="Đăng nhập"><i class="fas fa-user-circle"></i></a>
+    </div>
   </header>
 
-  <div class="container">
+  <!-- ===== BANNER SLIDER ===== -->
+  <section class="banner">
+    <div class="slides">
+      <img src="banner1.jpg" class="active" alt="Banner 1">
+      <img src="banner2.jpg" alt="Banner 2">
+      <img src="banner3.jpg" alt="Banner 3">
+    </div>
+
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+
+    <div class="dots">
+      <span onclick="currentSlide(0)" class="active"></span>
+      <span onclick="currentSlide(1)"></span>
+      <span onclick="currentSlide(2)"></span>
+    </div>
+  </section>
+
+  <!-- ===== GIỚI THIỆU NHANH ===== -->
+  <section class="intro">
     <h2>Chào mừng bạn đến với Cửa hàng của Chương!</h2>
-    <p>Chúng tôi cung cấp những sản phẩm chất lượng với phong cách hiện đại.</p>
-    <img src="banner.jpg" alt="Banner cửa hàng" class="banner">
-  </div>
+    <p>Chúng tôi cung cấp những sản phẩm chất lượng, hiện đại và bền đẹp nhất cho bạn.</p>
+    <a href="sanpham.html" class="btn">Khám phá ngay</a>
+  </section>
 
   <footer>
     <p>&copy; 2025 Cửa hàng của Chương</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
