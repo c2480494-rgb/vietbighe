@@ -12,17 +12,20 @@
       <a href="index.html">Trang chủ</a>
       <a href="sanpham.html">Sản phẩm</a>
       <a href="giohang.html">Giỏ hàng</a>
-      <a href="dangnhap.html">Đăng nhập</a>
+      <a href="dangnhap.html" id="loginLink">Đăng nhập</a>
     </nav>
   </header>
 
-  <div class="container">
+  <div class="container" id="giohang">
     <h2>Giỏ hàng của bạn</h2>
-    <p>Hiện chưa có sản phẩm nào trong giỏ hàng.</p>
+    <ul id="cartItems"></ul>
+    <button onclick="xoaGioHang()">Xóa giỏ hàng</button>
   </div>
 
   <footer>
     <p>&copy; 2025 Cửa hàng của Chương</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
