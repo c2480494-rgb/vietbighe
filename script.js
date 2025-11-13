@@ -76,4 +76,75 @@ if (loginLink && localStorage.getItem("user")) {
     alert("Đã đăng xuất!");
     location.reload();
   };
+}// === CHUYỂN GIỮA ĐĂNG NHẬP / ĐĂNG KÝ ===
+function hienDangKy() {
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("registerForm").style.display = "block";
 }
+
+function hienDangNhap() {
+  document.getElementById("loginForm").style.display = "block";
+  document.getElementById("registerForm").style.display = "none";
+}
+
+// === ĐĂNG KÝ ===
+function dangKy(event) {
+  event.preventDefault();
+  const user = document.getElementById("regUser").value;
+  const pass = document.getElementById("regPass").value;
+  const pass2 = document.getElementById("regPass2").value;
+
+  if (pass !== pass2) {
+    alert("Mật khẩu nhập lại không khớp!");
+    return;
+  }
+
+  // Lưu tài khoản vào localStorage
+  let users = JSON.parse(localStorage.getItem("users")) || {};
+  if (users[user]) {
+    alert("Tên đăng nhập đã tồn tại!");
+    return;
+  }
+
+  users[user] = pass;
+  localStorage.setItem("users", JSON.stringify(users));
+  alert("Đăng ký thành công! Hãy đăng nhập.");
+  hienDangNhap();
+}
+
+// === ĐĂNG NHẬP ===
+function dangNhap(event) {
+  event.preventDefault();
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  let users = JSON.parse(localStorage.getItem("users")) || {};
+  if (users[user] === pass || (user === "admin" && pass === "123")) {
+    localStorage.setItem("user", user);
+    alert("Đăng nhập thành công!");
+    window.location.href = "index.html";
+  } else {
+    alert("Sai tên đăng nhập hoặc mật khẩu!");
+  }
+}
+
+// === ĐĂNG NHẬP MXH (GIẢ LẬP) ===
+function dangNhapMXH(mxh) {
+  alert(`Đăng nhập bằng ${mxh} thành công (giả lập)!`);
+  localStorage.setItem("user", mxh);
+  window.location.href = "index.html";
+}
+
+// === HIỂN THỊ TRẠNG THÁI ===
+const loginLink = document.getElementById("loginLink");
+if (loginLink && localStorage.getItem("user")) {
+  const u = localStorage.getItem("user");
+  loginLink.textContent = `Xin chào, ${u} (Đăng xuất)`;
+  loginLink.href = "#";
+  loginLink.onclick = () => {
+    localStorage.removeItem("user");
+    alert("Đã đăng xuất!");
+    location.reload();
+  };
+}
+

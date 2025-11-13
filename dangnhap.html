@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Đăng nhập</title>
+  <title>Đăng nhập hoặc Đăng ký</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,14 +17,44 @@
   </header>
 
   <div class="container form-container">
-    <h2>Đăng nhập tài khoản</h2>
-    <form onsubmit="return dangNhap(event)">
-      <label>Tên đăng nhập</label>
-      <input type="text" id="username" required>
-      <label>Mật khẩu</label>
-      <input type="password" id="password" required>
-      <button type="submit">Đăng nhập</button>
-    </form>
+    <div id="loginForm">
+      <h2>Đăng nhập tài khoản</h2>
+      <form onsubmit="return dangNhap(event)">
+        <label>Tên đăng nhập</label>
+        <input type="text" id="username" required>
+
+        <label>Mật khẩu</label>
+        <input type="password" id="password" required>
+
+        <button type="submit">Đăng nhập</button>
+      </form>
+
+      <p>Chưa có tài khoản? <a href="#" onclick="hienDangKy()">Đăng ký ngay</a></p>
+
+      <div class="social-login">
+        <p>Hoặc đăng nhập bằng:</p>
+        <button class="fb" onclick="dangNhapMXH('Facebook')">Facebook</button>
+        <button class="gg" onclick="dangNhapMXH('Google')">Google</button>
+      </div>
+    </div>
+
+    <div id="registerForm" style="display: none;">
+      <h2>Đăng ký tài khoản mới</h2>
+      <form onsubmit="return dangKy(event)">
+        <label>Tên đăng nhập</label>
+        <input type="text" id="regUser" required>
+
+        <label>Mật khẩu</label>
+        <input type="password" id="regPass" required>
+
+        <label>Nhập lại mật khẩu</label>
+        <input type="password" id="regPass2" required>
+
+        <button type="submit">Đăng ký</button>
+      </form>
+
+      <p>Đã có tài khoản? <a href="#" onclick="hienDangNhap()">Quay lại đăng nhập</a></p>
+    </div>
   </div>
 
   <footer>

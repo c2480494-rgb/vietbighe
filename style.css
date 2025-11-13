@@ -118,3 +118,61 @@ button {
 button:hover {
   background-color: #52e0c4;
 }
+/* --- Đăng nhập / Đăng ký --- */
+.form-container {
+  max-width: 400px;
+  margin: 60px auto;
+  background-color: #112240;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #64ffda;
+  margin-bottom: 15px;
+}
+
+.form-container a {
+  color: #64ffda;
+  text-decoration: none;
+}
+
+.form-container a:hover {
+  text-decoration: underline;
+}
+
+.social-login {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-login p {
+  margin-bottom: 10px;
+  color: #ccd6f6;
+}
+
+.social-login button {
+  width: 45%;
+  margin: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.fb {
+  background-color: #1877f2;
+}
+
+.gg {
+  background-color: #db4437;
+}
+
+.fb:hover {
+  background-color: #145db2;
+}
+
+.gg:hover {
+  background-color: #c23321;
+}
