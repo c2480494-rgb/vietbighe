@@ -1,218 +1,69 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Đăng nhập hoặc Đăng ký - Cửa hàng của Chương</title>
+  <meta charset="utf-8">
+  <title>Đăng nhập - Cửa hàng của Chương</title>
   <link rel="stylesheet" href="style.css">
-
   <style>
-    /* ===== STYLE CHO TRANG ĐĂNG NHẬP / ĐĂNG KÝ ===== */
-    .form-container {
-      max-width: 400px;
-      margin: 60px auto;
-      background-color: #112240;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-      text-align: center;
-    }
-
-    .form-container h2 {
-      color: #64ffda;
-      margin-bottom: 20px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    label {
-      text-align: left;
-      font-weight: bold;
-      color: #ccd6f6;
-    }
-
-    input {
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      outline: none;
-      background-color: #0a192f;
-      color: #fff;
-    }
-
-    input:focus {
-      border: 1px solid #64ffda;
-    }
-
-    button {
-      background-color: #64ffda;
-      color: #0a192f;
-      font-weight: bold;
-      border: none;
-      padding: 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #52e0c4;
-    }
-
-    .social-login {
-      margin-top: 15px;
-    }
-
-    .social-login button {
-      width: 100%;
-      margin-top: 8px;
-      background-color: #233554;
-      color: #fff;
-      border: 1px solid #64ffda;
-    }
-
-    .social-login button:hover {
-      background-color: #64ffda;
-      color: #0a192f;
-    }
-
-    .toggle-form {
-      margin-top: 15px;
-      color: #8892b0;
-    }
-
-    .toggle-form a {
-      color: #64ffda;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .toggle-form a:hover {
-      text-decoration: underline;
-    }
+    .auth-wrap { max-width:420px; margin:40px auto; background:#021827; padding:20px; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,0.6); }
+    label { display:block; margin-top:8px; color:#bfeee1; font-weight:600; }
+    input { width:100%; padding:10px; margin-top:6px; border-radius:8px; border:none; background:#081a23; color:#eafaf4; }
+    button.primary { width:100%; margin-top:12px; padding:10px; border-radius:8px; border:none; background:#19d6b2; color:#022; font-weight:700; cursor:pointer; }
+    .socials button { width:48%; display:inline-block; margin-top:10px; padding:8px; border-radius:8px; border:none; cursor:pointer; }
+    .toggle { text-align:center; margin-top:12px; color:#9fdfe0; }
   </style>
 </head>
-
 <body>
-  <!-- ===== HEADER ===== -->
   <header>
-    <h1>Cửa hàng của Chương</h1>
-    <nav>
-      <a href="index.html">Trang chủ</a>
-      <a href="sanpham.html">Sản phẩm</a>
-      <a href="giohang.html">Giỏ hàng</a>
-      <a href="dangnhap.html">Đăng nhập</a>
-    </nav>
+    <div class="logo">Cửa hàng của Chương</div>
+    <nav><a href="index.html">Trang chủ</a><a href="sanpham.html">Sản phẩm</a></nav>
+    <div class="icons"><a href="giohang.html">🛒</a></div>
   </header>
 
-  <!-- ===== FORM CONTAINER ===== -->
-  <div class="container">
-    <!-- Form Đăng nhập -->
-    <div class="form-container" id="loginForm">
-      <h2>Đăng nhập tài khoản</h2>
-      <form onsubmit="return dangNhap(event)">
-        <label for="username">Tên đăng nhập</label>
-        <input type="text" id="username" required>
-
-        <label for="password">Mật khẩu</label>
-        <input type="password" id="password" required>
-
-        <button type="submit">Đăng nhập</button>
+  <main class="page-content">
+    <div class="auth-wrap">
+      <h2 style="color:#8ef0d7;">Đăng nhập</h2>
+      <form onsubmit="return fakeLogin(event)">
+        <label for="u">Tên đăng nhập</label>
+        <input id="u" required>
+        <label for="p">Mật khẩu</label>
+        <input id="p" type="password" required>
+        <button class="primary" type="submit">Đăng nhập</button>
       </form>
 
-      <div class="social-login">
-        <button onclick="alert('Tính năng đăng nhập Google đang được phát triển!')">
-          Đăng nhập bằng Google
-        </button>
-        <button onclick="alert('Tính năng đăng nhập Facebook đang được phát triển!')">
-          Đăng nhập bằng Facebook
-        </button>
-      </div>
-
-      <div class="toggle-form">
-        <p>Chưa có tài khoản?
-          <a href="#" onclick="showRegister()">Đăng ký ngay</a>
-        </p>
+      <div class="toggle">Hoặc <a href="#" onclick="showRegister()">Đăng ký</a></div>
+      <div class="socials" style="margin-top:10px;">
+        <button onclick="alert('Giả lập đăng nhập Facebook')">Facebook</button>
+        <button onclick="alert('Giả lập đăng nhập Google')">Google</button>
       </div>
     </div>
 
-    <!-- Form Đăng ký -->
-    <div class="form-container" id="registerForm" style="display:none;">
-      <h2>Tạo tài khoản mới</h2>
-      <form onsubmit="return dangKy(event)">
-        <label for="newUsername">Tên đăng nhập</label>
-        <input type="text" id="newUsername" required>
-
-        <label for="newPassword">Mật khẩu</label>
-        <input type="password" id="newPassword" required>
-
-        <label for="confirmPassword">Nhập lại mật khẩu</label>
-        <input type="password" id="confirmPassword" required>
-
-        <button type="submit">Đăng ký</button>
-      </form>
-
-      <div class="toggle-form">
-        <p>Đã có tài khoản?
-          <a href="#" onclick="showLogin()">Đăng nhập</a>
-        </p>
+    <div id="registerBox" style="display:none; max-width:420px; margin:10px auto;">
+      <div class="auth-wrap">
+        <h2 style="color:#8ef0d7;">Đăng ký</h2>
+        <form onsubmit="return fakeRegister(event)">
+          <label for="ru">Tên đăng ký</label>
+          <input id="ru" required>
+          <label for="rp">Mật khẩu</label>
+          <input id="rp" type="password" required>
+          <label for="rc">Nhập lại mật khẩu</label>
+          <input id="rc" type="password" required>
+          <button class="primary" type="submit">Đăng ký</button>
+        </form>
+        <div class="toggle">Đã có tài khoản? <a href="#" onclick="showLogin()">Đăng nhập</a></div>
       </div>
     </div>
-  </div>
+  </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>&copy; 2025 Cửa hàng của Chương</p>
+    <div class="footer-container"><div class="footer-section"><h3>Liên hệ</h3><p>📞 0369535877</p></div></div>
   </footer>
 
-  <!-- ===== SCRIPT ===== -->
   <script>
-    // Hiển thị form đăng ký
-    function showRegister() {
-      document.getElementById('loginForm').style.display = 'none';
-      document.getElementById('registerForm').style.display = 'block';
-    }
-
-    // Hiển thị form đăng nhập
-    function showLogin() {
-      document.getElementById('loginForm').style.display = 'block';
-      document.getElementById('registerForm').style.display = 'none';
-    }
-
-    // Xử lý đăng nhập (giả lập)
-    function dangNhap(e) {
-      e.preventDefault();
-      const user = document.getElementById('username').value;
-      const pass = document.getElementById('password').value;
-
-      if (user === 'admin' && pass === '123') {
-        alert('Đăng nhập thành công!');
-        window.location.href = 'index.html';
-      } else {
-        alert('Sai tên đăng nhập hoặc mật khẩu!');
-      }
-      return false;
-    }
-
-    // Xử lý đăng ký (giả lập)
-    function dangKy(e) {
-      e.preventDefault();
-      const u = document.getElementById('newUsername').value;
-      const p = document.getElementById('newPassword').value;
-      const c = document.getElementById('confirmPassword').value;
-
-      if (p !== c) {
-        alert('Mật khẩu nhập lại không khớp!');
-        return false;
-      }
-
-      alert('Đăng ký thành công! Hãy đăng nhập.');
-      showLogin();
-      return false;
-    }
+    function fakeLogin(e){ e.preventDefault(); localStorage.setItem('cuahang_user', document.getElementById('u').value); alert('Đăng nhập thành công (giả lập)'); window.location='index.html'; return false; }
+    function fakeRegister(e){ e.preventDefault(); const ru=document.getElementById('ru').value; const rp=document.getElementById('rp').value; const rc=document.getElementById('rc').value; if(rp!==rc){ alert('Mật khẩu không trùng'); return false; } alert('Đăng ký thành công!'); showLogin(); return false; }
+    function showRegister(){ document.querySelector('form').style.display='none'; document.getElementById('registerBox').style.display='block'; }
+    function showLogin(){ document.querySelector('form').style.display='block'; document.getElementById('registerBox').style.display='none'; }
   </script>
 </body>
 </html>

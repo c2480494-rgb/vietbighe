@@ -1,31 +1,58 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>Giỏ hàng - Cửa hàng của Chương</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
   <header>
-    <div class="logo"><h1>Cửa hàng của Chương</h1></div>
-    <nav>
-      <a href="index.html">Trang chủ</a>
-      <a href="sanpham.html">Sản phẩm</a>
-      <a href="giohang.html" class="active">Giỏ hàng</a>
-      <a href="dangnhap.html">Đăng nhập</a>
-    </nav>
+    <div class="logo">Cửa hàng của Chương</div>
+    <nav><a href="index.html">Trang chủ</a><a href="sanpham.html">Sản phẩm</a></nav>
+    <div class="icons"><a href="dangnhap.html">👤</a></div>
   </header>
 
-  <div class="container">
-    <h2>Giỏ hàng của bạn</h2>
-    <div id="cartItems"></div>
-    <p id="cartTotal"></p>
-    <button onclick="clearCart()">🗑️ Xóa tất cả</button>
-  </div>
+  <main class="page-content">
+    <section>
+      <h2>Giỏ hàng của bạn</h2>
+      <div id="cartArea"></div>
+    </section>
+
+    <section>
+      <h2>Thanh toán</h2>
+      <p>Thanh toán giả lập — bạn có thể mở rộng tích hợp cổng khi cần.</p>
+      <div style="height:800px;"></div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Cửa hàng của Chương</p>
+    <div class="footer-container">
+      <div class="footer-section"><h3>Liên hệ</h3><p>📞 0369535877</p></div>
+    </div>
   </footer>
+
+  <script>
+    // Render cart on this page
+    function renderCartPage(){
+      const cart = JSON.parse(localStorage.getItem('cuahang_cart')||'[]');
+      const area = document.getElementById('cartArea');
+      if(!area) return;
+      if(!cart.length) { area.innerHTML = '<p>Giỏ hàng trống.</p>'; return; }
+      let html = '<table style="width:100%;border-collapse:collapse;color:#cfe7ff;"><thead><tr><th>Sản phẩm</th><th>Giá</th><th>Số lượng</th><th>Tổng</th><th></th></tr></thead><tbody>';
+      let total=0;
+      cart.forEach((it,idx)=>{
+        const sub = it.price * it.qty;
+        total += sub;
+        html += `<tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td>${it.name}</td><td>${it.price.toLocaleString()}₫</td><td><input type="number" min="1" value="${it.qty}" onchange="updateQty(${idx},this.value)"></td><td>${sub.toLocaleString()}₫</td><td><button onclick="removeItem(${idx})" style="background:#ff6b6b;border:none;padding:6px;border-radius:6px;cursor:pointer;">Xóa</button></td></tr>`;
+      });
+      html += `</tbody></table><h3 style="text-align:right;margin-top:12px;">Tổng: ${total.toLocaleString()}₫</h3>`;
+      area.innerHTML = html;
+    }
+    function updateQty(i, val){ const cart=JSON.parse(localStorage.getItem('cuahang_cart')||'[]'); cart[i].qty = parseInt(val)||1; localStorage.setItem('cuahang_cart', JSON.stringify(cart)); renderCartPage(); }
+    function removeItem(i){ const cart=JSON.parse(localStorage.getItem('cuahang_cart')||'[]'); cart.splice(i,1); localStorage.setItem('cuahang_cart', JSON.stringify(cart)); renderCartPage(); }
+    // render on load
+    document.addEventListener('DOMContentLoaded', renderCartPage);
+  </script>
 </body>
 </html>

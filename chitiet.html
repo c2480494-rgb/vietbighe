@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>Chi tiết sản phẩm</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
-    <h1>Cửa hàng của Chương</h1>
-    <nav>
-      <a href="index.html">Trang chủ</a>
-      <a href="sanpham.html">Sản phẩm</a>
-      <a href="giohang.html">Giỏ hàng</a>
-      <a href="dangnhap.html" id="loginLink">Đăng nhập</a>
-    </nav>
+    <div class="logo">Cửa hàng của Chương</div>
+    <nav><a href="index.html">Trang chủ</a><a href="sanpham.html">Sản phẩm</a></nav>
+    <div class="icons"><a href="giohang.html">🛒</a></div>
   </header>
 
-  <div class="container" id="chitiet">
-    <!-- Sản phẩm sẽ hiển thị tự động bằng JS -->
-  </div>
+  <main class="page-content">
+    <section>
+      <h2>Chi tiết sản phẩm</h2>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;">
+        <img id="detailImg" src="sp1.jpg" alt="" style="width:420px;border-radius:8px;background:#041426;padding:12px;">
+        <div style="max-width:560px;">
+          <h3 id="detailTitle">Sản phẩm mẫu</h3>
+          <p id="detailDesc">Mô tả ngắn về sản phẩm laptop — cấu hình, ưu điểm, bảo hành...</p>
+          <p id="detailPrice" style="color:#9febd9;font-weight:800;">45.000₫</p>
+          <button onclick="themVaoGio('Sản phẩm mẫu',45000)" style="background:#19d6b2;border:none;padding:10px;border-radius:8px;color:#022;font-weight:700;">Thêm vào giỏ</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="height:900px;">
+      <h2>Thông tin bổ sung</h2>
+      <p>Chi tiết kĩ thuật, bảng cấu hình, hướng dẫn sử dụng, bảo hành...</p>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Cửa hàng của Chương</p>
+    <div class="footer-container"><div class="footer-section"><h3>Liên hệ</h3><p>📞 0369535877</p></div></div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

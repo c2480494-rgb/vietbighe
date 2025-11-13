@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>Sản phẩm - Cửa hàng của Chương</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
   <header>
-    <div class="logo"><h1>Cửa hàng của Chương</h1></div>
-    <nav>
-      <a href="index.html">Trang chủ</a>
-      <a href="sanpham.html" class="active">Sản phẩm</a>
-      <a href="giohang.html">Giỏ hàng</a>
-      <a href="dangnhap.html">Đăng nhập</a>
-    </nav>
+    <div class="logo">Cửa hàng của Chương</div>
+    <div class="search-bar"><input id="searchInput2" placeholder="Tìm sản phẩm..."><button onclick="timKiem()">🔍</button></div>
+    <nav><a href="index.html">Trang chủ</a><a href="sanpham.html" class="active">Sản phẩm</a></nav>
+    <div class="icons"><a href="giohang.html">🛒</a><a href="dangnhap.html">👤</a></div>
   </header>
 
-  <div class="container">
-    <h2>Danh sách sản phẩm</h2>
-    <div class="product-list">
-      <!-- Lặp lại 10 sản phẩm -->
-      <div class="product">
-        <img src="sp1.jpg">
-        <h3>Sản phẩm 1</h3>
-        <p>Giá: 45.000₫</p>
-        <button class="add-to-cart" data-name="Sản phẩm 1" data-price="45000">Thêm vào giỏ</button>
+  <main class="page-content">
+    <section>
+      <h2>Danh sách sản phẩm (Laptop)</h2>
+      <div class="product-grid" id="productGrid">
+        <!-- products same as index -->
+        <div class="product"><img src="sp1.jpg"><h3>Sản phẩm 1 - Legion</h3><p class="price">45.000₫</p><button data-name="Sản phẩm 1 - Legion" data-price="45000" data-add>Thêm vào giỏ</button></div>
+        <div class="product"><img src="sp2.jpg"><h3>Sản phẩm 2 - Legion</h3><p class="price">35.000₫</p><button data-name="Sản phẩm 2 - Legion" data-price="35000" data-add>Thêm vào giỏ</button></div>
+        <div class="product"><img src="sp3.jpg"><h3>Sản phẩm 3 - UltraBook</h3><p class="price">50.000₫</p><button data-name="Sản phẩm 3 - UltraBook" data-price="50000" data-add>Thêm vào giỏ</button></div>
+        <div class="product"><img src="sp4.jpg"><h3>Sản phẩm 4 - Gaming Pro</h3><p class="price">65.000₫</p><button data-name="Sản phẩm 4 - Gaming Pro" data-price="65000" data-add>Thêm vào giỏ</button></div>
+        <div class="product"><img src="sp5.jpg"><h3>Sản phẩm 5 - ThinkBook</h3><p class="price">70.000₫</p><button data-name="Sản phẩm 5 - ThinkBook" data-price="70000" data-add>Thêm vào giỏ</button></div>
+        <div class="product"><img src="sp6.jpg"><h3>Sản phẩm 6 - Slim</h3><p class="price">55.000₫</p><button data-name="Sản phẩm 6 - Slim" data-price="55000" data-add>Thêm vào giỏ</button></div>
+        <div class="product"><img src="sp7.jpg"><h3>Sản phẩm 7 - Legion X</h3><p class="price">80.000₫</p><button data-name="Sản phẩm 7 - Legion X" data-price="80000" data-add>Thêm vào giỏ</button></div>
+        <div class="product"><img src="sp8.jpg"><h3>Sản phẩm 8 - Nano</h3><p class="price">25.000₫</p><button data-name="Sản phẩm 8 - Nano" data-price="25000" data-add>Thêm vào giỏ</button></div>
+        <div class="product"><img src="sp9.jpg"><h3>Sản phẩm 9 - Studio</h3><p class="price">90.000₫</p><button data-name="Sản phẩm 9 - Studio" data-price="90000" data-add>Thêm vào giỏ</button></div>
+        <div class="product"><img src="sp10.jpg"><h3>Sản phẩm 10 - Legion Pro</h3><p class="price">60.000₫</p><button data-name="Sản phẩm 10 - Legion Pro" data-price="60000" data-add>Thêm vào giỏ</button></div>
       </div>
-      <div class="product">
-        <img src="sp2.jpg">
-        <h3>Sản phẩm 2</h3>
-        <p>Giá: 35.000₫</p>
-        <button class="add-to-cart" data-name="Sản phẩm 2" data-price="35000">Thêm vào giỏ</button>
-      </div>
-      <div class="product"><img src="sp3.jpg"><h3>Sản phẩm 3</h3><p>Giá: 50.000₫</p><button class="add-to-cart" data-name="Sản phẩm 3" data-price="50000">Thêm vào giỏ</button></div>
-      <div class="product"><img src="sp4.jpg"><h3>Sản phẩm 4</h3><p>Giá: 65.000₫</p><button class="add-to-cart" data-name="Sản phẩm 4" data-price="65000">Thêm vào giỏ</button></div>
-      <div class="product"><img src="sp5.jpg"><h3>Sản phẩm 5</h3><p>Giá: 70.000₫</p><button class="add-to-cart" data-name="Sản phẩm 5" data-price="70000">Thêm vào giỏ</button></div>
-      <div class="product"><img src="sp6.jpg"><h3>Sản phẩm 6</h3><p>Giá: 55.000₫</p><button class="add-to-cart" data-name="Sản phẩm 6" data-price="55000">Thêm vào giỏ</button></div>
-      <div class="product"><img src="sp7.jpg"><h3>Sản phẩm 7</h3><p>Giá: 80.000₫</p><button class="add-to-cart" data-name="Sản phẩm 7" data-price="80000">Thêm vào giỏ</button></div>
-      <div class="product"><img src="sp8.jpg"><h3>Sản phẩm 8</h3><p>Giá: 25.000₫</p><button class="add-to-cart" data-name="Sản phẩm 8" data-price="25000">Thêm vào giỏ</button></div>
-      <div class="product"><img src="sp9.jpg"><h3>Sản phẩm 9</h3><p>Giá: 90.000₫</p><button class="add-to-cart" data-name="Sản phẩm 9" data-price="90000">Thêm vào giỏ</button></div>
-      <div class="product"><img src="sp10.jpg"><h3>Sản phẩm 10</h3><p>Giá: 60.000₫</p><button class="add-to-cart" data-name="Sản phẩm 10" data-price="60000">Thêm vào giỏ</button></div>
-    </div>
-  </div>
+    </section>
+
+    <!-- filler content so page is long -->
+    <section>
+      <h2>Hướng dẫn & Chính sách</h2>
+      <p>Chúng tôi hỗ trợ đổi trả trong 7 ngày, bảo hành 12 tháng chính hãng, giao hàng toàn quốc. (Nội dung chi tiết...) </p>
+      <p style="margin-top:20px;">— Thông tin bổ sung... (thêm mô tả, hình ảnh, FAQ để làm trang dài)</p>
+      <div style="height:800px;"></div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Cửa hàng của Chương</p>
+    <div class="footer-container">
+      <div class="footer-section"><h3>Liên hệ</h3><p>📞 0369535877</p></div>
+      <div class="footer-section"><h3>Về chúng tôi</h3><p>Thông tin cửa hàng...</p></div>
+    </div>
   </footer>
 </body>
 </html>
