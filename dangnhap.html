@@ -2,17 +2,18 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Đăng nhập - Cửa hàng của Chương</title>
+  <title>Đăng nhập hoặc Đăng ký - Cửa hàng của Chương</title>
   <link rel="stylesheet" href="style.css">
+
   <style>
-    /* ===== STYLE RIÊNG CHO TRANG ĐĂNG NHẬP ===== */
+    /* ===== STYLE CHO TRANG ĐĂNG NHẬP / ĐĂNG KÝ ===== */
     .form-container {
       max-width: 400px;
       margin: 60px auto;
       background-color: #112240;
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
       text-align: center;
     }
 
@@ -96,6 +97,7 @@
 </head>
 
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
     <h1>Cửa hàng của Chương</h1>
     <nav>
@@ -106,7 +108,9 @@
     </nav>
   </header>
 
+  <!-- ===== FORM CONTAINER ===== -->
   <div class="container">
+    <!-- Form Đăng nhập -->
     <div class="form-container" id="loginForm">
       <h2>Đăng nhập tài khoản</h2>
       <form onsubmit="return dangNhap(event)">
@@ -120,12 +124,18 @@
       </form>
 
       <div class="social-login">
-        <button onclick="alert('Đăng nhập bằng Google đang được phát triển!')">Đăng nhập bằng Google</button>
-        <button onclick="alert('Đăng nhập bằng Facebook đang được phát triển!')">Đăng nhập bằng Facebook</button>
+        <button onclick="alert('Tính năng đăng nhập Google đang được phát triển!')">
+          Đăng nhập bằng Google
+        </button>
+        <button onclick="alert('Tính năng đăng nhập Facebook đang được phát triển!')">
+          Đăng nhập bằng Facebook
+        </button>
       </div>
 
       <div class="toggle-form">
-        <p>Chưa có tài khoản? <a href="#" onclick="showRegister()">Đăng ký ngay</a></p>
+        <p>Chưa có tài khoản?
+          <a href="#" onclick="showRegister()">Đăng ký ngay</a>
+        </p>
       </div>
     </div>
 
@@ -146,28 +156,33 @@
       </form>
 
       <div class="toggle-form">
-        <p>Đã có tài khoản? <a href="#" onclick="showLogin()">Đăng nhập</a></p>
+        <p>Đã có tài khoản?
+          <a href="#" onclick="showLogin()">Đăng nhập</a>
+        </p>
       </div>
     </div>
   </div>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
     <p>&copy; 2025 Cửa hàng của Chương</p>
   </footer>
 
+  <!-- ===== SCRIPT ===== -->
   <script>
-    // Ẩn / hiện form đăng ký - đăng nhập
+    // Hiển thị form đăng ký
     function showRegister() {
       document.getElementById('loginForm').style.display = 'none';
       document.getElementById('registerForm').style.display = 'block';
     }
 
+    // Hiển thị form đăng nhập
     function showLogin() {
       document.getElementById('loginForm').style.display = 'block';
       document.getElementById('registerForm').style.display = 'none';
     }
 
-    // Giả lập đăng nhập
+    // Xử lý đăng nhập (giả lập)
     function dangNhap(e) {
       e.preventDefault();
       const user = document.getElementById('username').value;
@@ -182,7 +197,7 @@
       return false;
     }
 
-    // Giả lập đăng ký
+    // Xử lý đăng ký (giả lập)
     function dangKy(e) {
       e.preventDefault();
       const u = document.getElementById('newUsername').value;
