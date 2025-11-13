@@ -169,3 +169,21 @@
 
 </body>
 </html>
+function xemChiTiet(name, img, price) {
+  const product = {
+    name: name,
+    img: img,
+    price: price,
+    desc: "Laptop cao cấp, hiệu năng mạnh, phù hợp học tập và làm việc.",
+    specs: [
+      "CPU: Intel Core i7 12700H",
+      "RAM: 16GB DDR5",
+      "SSD: 512GB NVMe",
+      "Card đồ họa: RTX 3050Ti",
+      "Màn hình: 15.6 inch Full HD 144Hz",
+      "Pin: 80Wh, sạc nhanh 100W"
+    ]
+  };
+  localStorage.setItem("chiTietSP", JSON.stringify(product));
+  window.location.href = "chitiet.html";
+}

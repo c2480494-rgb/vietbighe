@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thanh toán - Cửa hàng của Chương</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Cửa hàng của Chương</div>
+    <nav>
+      <a href="index.html">Trang chủ</a>
+      <a href="sanpham.html">Sản phẩm</a>
+      <a href="giohang.html">Giỏ hàng</a>
+      <a href="dangnhap.html">Đăng nhập</a>
+    </nav>
+  </header>
+
+  <div class="container fade-up" style="min-height:2500px">
+    <h2>Thanh toán đơn hàng</h2>
+
+    <div class="checkout-container">
+      <div class="checkout-left">
+        <h3>Thông tin khách hàng</h3>
+        <form id="checkoutForm" onsubmit="return xacNhanThanhToan(event)">
+          <label>Họ và tên:</label>
+          <input type="text" id="fullname" required>
+
+          <label>Số điện thoại:</label>
+          <input type="text" id="phone" required>
+
+          <label>Địa chỉ giao hàng:</label>
+          <input type="text" id="address" required>
+
+          <label>Phương thức thanh toán:</label>
+          <select id="paymentMethod" required>
+            <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+            <option value="bank">Chuyển khoản ngân hàng</option>
+            <option value="momo">Ví MoMo</option>
+          </select>
+
+          <button type="submit" class="btn">Xác nhận thanh toán</button>
+        </form>
+      </div>
+
+      <div class="checkout-right">
+        <h3>Đơn hàng của bạn</h3>
+        <div id="orderSummary"></div>
+        <p class="total">Tổng cộng: <span id="checkoutTotal">0₫</span></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Cửa hàng của Chương. Mọi quyền được bảo lưu.</p>
+  </footer>
+
+  <script>
+    function loadCheckout() {
+      const cart = JSON.parse(localStorage.getItem("gioHang")) || [];
+      const orderSummary = document.getElementById("orderSummary");
+      const totalEl = document.getElementById("checkoutTotal");
+      let html = "", total = 0;
+
+      cart.forEach(sp => {
+        html += `<p>${sp.name} - ${sp.price.toLocaleString()}₫ x ${sp.quantity}</p>`;
+        total += sp.price * sp.quantity;
+      });
+
+      orderSummary.innerHTML = html || "<p>Giỏ hàng trống.</p>";
+      totalEl.textContent = total.toLocaleString() + "₫";
+    }
+
+    function xacNhanThanhToan(e) {
+      e.preventDefault();
+      alert("✅ Đơn hàng của bạn đã được xác nhận! Cảm ơn bạn đã mua sắm tại Cửa hàng của Chương.");
+      localStorage.removeItem("gioHang");
+      window.location.href = "index.html";
+      return false;
+    }
+
+    window.onload = loadCheckout;
+  </script>
+</body>
+</html>
